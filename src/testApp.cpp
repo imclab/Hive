@@ -34,7 +34,7 @@ void testApp::setup() {
     seatURLs.push_back("");
     
     
-    seatURLs[0] = "            goo.gl/zrJVK";
+    seatURLs[0] = "goo.gl/zrJVK";
     seatURLs[1] = "  goo.gl/gJRVi";
     seatURLs[2] = "  goo.gl/B70xT";
     seatURLs[3] = "  goo.gl/pBYza";
@@ -47,7 +47,7 @@ void testApp::setup() {
     ofAddListener(httpUtils.newResponseEvent,this,&testApp::newResponse);
 	httpUtils.start();
     lastWebUpdate = time(0);
-    webUpdateInterval = 1; // check whether 0.5 works   
+    webUpdateInterval = 0.5f; // check whether 0.5 works   
     
     firstRectLeft = sensor.refRectangles[0].x();
     firstRectRight = sensor.refRectangles[0].x() + sensor.refRectangles[0].z();
@@ -250,7 +250,7 @@ void testApp::draw(Seat seat){
             //cout << "seat: " << seat.number << ". status: " << status << endl; 
             
             if(seat.currentStatus != NO_STATUS){
-                logos[status].resize(50, 33);
+                logos[status].resize(30, 33);
                 logos[status].draw( -60, - 30);  //w:50, h:33
                 smallLogos[status].resize(24, 22);
                 smallLogos[status].draw(192, 122);//w:24, h:22           
@@ -274,7 +274,7 @@ void testApp::draw(Seat seat){
             hiveLogo.draw( 94,  37); //55 x 49        
             welcomeText.setText(seatURLs[seat.number]);
             welcomeText.wrapTextX(maxTextWidth);//176
-            welcomeText.draw( 35,  105); 
+            welcomeText.draw( 45,  105); 
             
         }
                  

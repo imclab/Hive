@@ -42,7 +42,7 @@ public:
     
     
     time_t lastWebUpdate;
-    int webUpdateInterval;
+    float webUpdateInterval;
     int numberOfSeats;
     
 private:
